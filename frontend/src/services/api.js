@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configurare de bază pentru Axios
 const api = axios.create({
-    baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
+    baseURL: process.env.REACT_APP_API_URL || 'https://' + window.location.hostname.replace('3000', '5000') + '/api',
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',

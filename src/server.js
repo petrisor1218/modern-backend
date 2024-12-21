@@ -36,7 +36,7 @@ cron.schedule('0 10 * * *', async () => {
     }
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on port ${PORT}`);
     console.log('Procesare automată programată pentru ora 10:00 în zilele de 14 și penultima zi a lunii');
 });

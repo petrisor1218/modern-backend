@@ -4,14 +4,13 @@ require('dotenv').config();
 
 const connectDB = async () => {
     try {
-        const mongoURI = process.env.MONGODB_URI || 'your_mongodb_atlas_uri';
-        await mongoose.connect(mongoURI);
+        await mongoose.connect(process.env.MONGODB_URI, {
+            serverSelectionTimeoutMS: 5000
+        });
         console.log('MongoDB connected successfully');
     } catch (error) {
         console.error('MongoDB connection error:', error);
-        setTimeout(() => {
-            connectDB();
-        }, 5000);
+        setTimeout(connectDB, 5000);
     }
 };
 
